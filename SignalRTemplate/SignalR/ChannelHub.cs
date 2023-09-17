@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 using SignalRTemplate.Extensions;
 
 namespace SignalRTemplate.SignalR;
 
+[Authorize("ChannelHubAuthorizationPolicy")]
 public class ChannelHub : Hub
 {
     private readonly ILogger<ChannelHub> _logger;
