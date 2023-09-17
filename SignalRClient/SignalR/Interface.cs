@@ -16,3 +16,24 @@ public class Join
         public string JoinId { get; set; } = string.Empty;
     }
 }
+
+public class Login
+{
+    public class Response : BaseResponse
+    {
+        public string? AccessToken { get; set; }
+        public string? RefreshToken { get; set; }
+    }
+}
+
+public abstract class BaseResponse
+{
+    public bool Result { get; set; }
+    public Error? Error { get; set; }
+}
+
+public class Error
+{
+    public string Code { get; set; } = string.Empty;
+    public string Message { get; set; } = string.Empty;
+}
