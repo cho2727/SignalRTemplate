@@ -4,9 +4,8 @@ using SignalRClient.Extensions;
 using SignalRClient.SignalR;
 Console.WriteLine("Hello, World!");
 
-async Task<HubConnection> InitSignalRClient()
+async Task<string> GetLoginToken()
 {
-
     var identityUrl = $"https://localhost:7093/user/login";
     HttpClient client = new HttpClient();
     var request = new
@@ -23,6 +22,14 @@ async Task<HubConnection> InitSignalRClient()
         token = loginResponse?.AccessToken ?? "";
     }
 
+    return token;
+}
+
+async Task<HubConnection> InitSignalRClient()
+{
+    // string token = await GetLoginToken();
+    // amazone cognito authority
+    string token = "eyJraWQiOiJwdjFKNXV1eFFXY0pySlBNMkQ1XC9mdFRGXC9WVitpc1hldHVkWG5BTEtcL0lZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI5MzNlMDg3ZC0yMTY5LTRmYzEtYWIzMy04MDI1NmNjNzEwZmEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTJfSG9ndGNOd1VvIiwiY2xpZW50X2lkIjoiNGUxNjA3ajQ5cjdwaXIwM2FuczhvMzBob3IiLCJvcmlnaW5fanRpIjoiMTUyMDU5ZmEtYTA1OC00MmRjLThkODYtMGIzYTYxOTI0NTY0IiwiZXZlbnRfaWQiOiJkODRiMTVhYi04ZDYyLTQwYWUtOGM5OC0xYTBmYjkxNTY0MGUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNjk1MDAxODQ1LCJleHAiOjE2OTUwMDU0NDUsImlhdCI6MTY5NTAwMTg0NSwianRpIjoiZWNmNTk3NmMtMjVmMy00NDBmLTg0Y2UtN2QxZDA2Y2ZiZmU2IiwidXNlcm5hbWUiOiI5MzNlMDg3ZC0yMTY5LTRmYzEtYWIzMy04MDI1NmNjNzEwZmEifQ.V2KEm4EDoIcJOZ4eZqJ2R66OpEE52H8hRdC4ZmU_hY72mpD2OX9y2j9oKKRxx2ybv8TEDGU82efksOTG7NRjiJJ9D5c2S83AiOBJ4wN3fHc05ZjWGbCVe7r0IF9yH1c_jdbrfbWBm0A_RPv5Oe4anmSDNELmkeDxte_wYqdy_dKa2vWk92VkZeze1amUTGQf6qXNttIjlliFN6JBMlchf8UCEGFgSPuQG-GFiXrgjHFr6DHgWVFzwR_IAvTYf19aqHKCIRq8iQc8suE5fQ9nNvDh9diKNWTehuS3wKOAFKsqe9tbzaH0vAFnYkw3dsDbXQ8e-_rv0shtR3YAgZwtvA";
 
     var url = $"https://localhost:5004/channel";
     var connection = new HubConnectionBuilder()
