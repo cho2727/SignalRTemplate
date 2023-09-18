@@ -15,15 +15,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddHttpClient();
 builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
-    options.Authority = builder.Configuration.GetSection("Cognito").GetValue<string>("Authority");
-    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        ValidateAudience = false,
-        ValidateIssuer = false
-    };
+    //options.Authority = builder.Configuration.GetSection("Cognito").GetValue<string>("Authority");
+    //options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    //{
+    //    ValidateIssuerSigningKey = true,
+    //    ValidateAudience = false,
+    //    ValidateIssuer = false
+    //};
     options.Events = new JwtBearerEvents
     {
         OnMessageReceived = context =>
@@ -109,7 +110,7 @@ builder.Services.Scan(scan => scan
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

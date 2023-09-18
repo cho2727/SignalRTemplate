@@ -23,3 +23,8 @@ https://jwt.io/
 [패키지 설치]
 dotnet add package Amazon.AspNetCore.Identity.Cognito
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+
+
+[docker]
+빌드 : docker build -t signalr-template -f Dockerfile .
+실행 : docker run -it -p 5004:5004 --rm signalr-template

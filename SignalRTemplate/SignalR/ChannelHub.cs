@@ -4,8 +4,8 @@ using SignalRTemplate.Extensions;
 
 namespace SignalRTemplate.SignalR;
 
-// [Authorize("ChannelHubAuthorizationPolicy")]
-[Authorize]
+ [Authorize("ChannelHubAuthorizationPolicy")]
+//[Authorize]
 public class ChannelHub : Hub
 {
     private readonly ILogger<ChannelHub> _logger;
