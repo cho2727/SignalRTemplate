@@ -28,3 +28,5 @@ dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 [docker]
 빌드 : docker build -t signalr-template -f Dockerfile .
 실행 : docker run -it -p 5004:5004 --rm signalr-template
+삭제 : docker rmi signalr-template
+

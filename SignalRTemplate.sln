@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRTemplate", "SignalRTemplate.csproj", "{710E5951-DDEF-47FF-A860-3E144D7154D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRTemplate", "SignalRTemplate\SignalRTemplate.csproj", "{710E5951-DDEF-47FF-A860-3E144D7154D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRClient", "..\SignalRClient\SignalRClient.csproj", "{F75E262E-A99D-428E-9D53-DF1E6B095851}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRClient", "SignalRClient\SignalRClient.csproj", "{F75E262E-A99D-428E-9D53-DF1E6B095851}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
