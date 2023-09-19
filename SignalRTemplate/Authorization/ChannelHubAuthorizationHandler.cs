@@ -32,7 +32,7 @@ public class ChannelHubAuthorizationHandler : AuthorizationHandler<ChannelHubAut
         _logger = logger;
         _httpClient = httpClientFactory.CreateClient();
     }
-    protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, ChannelHubAuthorizationRequirement requirement)
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ChannelHubAuthorizationRequirement requirement)
     {
         var request = _httpContextAccessor.HttpContext.Request;
         string jwtToken = string.Empty;
@@ -52,6 +52,7 @@ public class ChannelHubAuthorizationHandler : AuthorizationHandler<ChannelHubAut
             _logger.LogDebug("Signalr authorization failed");
             context.Fail();
         }
+        return Task.CompletedTask;
     }
 
     private async ValueTask<bool> ValidateTokenAsync(string token)
