@@ -1,4 +1,4 @@
-name: checkout-build-run-docker demon
+name: checkout-build-run-docker-demon
 on: 
   workflow_dispatch:
 jobs:
